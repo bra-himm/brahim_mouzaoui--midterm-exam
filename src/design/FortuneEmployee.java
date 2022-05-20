@@ -1,5 +1,5 @@
 package design;
-
+import java.text.ParseException;
 public class FortuneEmployee {
 
 	/**
@@ -14,7 +14,33 @@ public class FortuneEmployee {
 	 *
 	 **/
 	public static void main(String[] args) {
-		
+
+		EmployeeInfo employee = new EmployeeInfo("brahim", 01);
+		EmployeeInfo.setCompanyName("PNT");
+		employee.setSalary(100000);
+		employee.setSsn("014.01.7344");
+		employee.setEmployeeId(01);
+		employee.setEmail("brahim@gmail.com");
+		employee.setDate_of_birth("01/04/1984");
+		employee.assignDepartment();
+		employee.benefitLayout();
+		employee.printInfo();
+		int bonus=EmployeeInfo.calculateEmployeeBonus(100000, "best");
+		System.out.println("your bonus is "+bonus);
+		try {
+			int pension = EmployeeInfo.calculateEmployeePension(5, 100000);
+			System.out.println("your pension is "+ pension);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		System.out.println("**************** Accessing abstract class properties*******");
+		// Access the static methods with the class name
+		AbstractEmployee.meeting();
+
+		// Access the abstract class properties with EmployeeInfo object
+		System.out.println("Experience: " + employee.yearsOfExperience);
+		employee.travelTheWorld();
+		employee.giveInstructions();
 
 
 	}
